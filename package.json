@@ -1,8 +1,13 @@
 {
   "name": "crowdword",
-  "version": "1.0.0",
-  "description": "Collaborative writing, word by word.",
-  "author": "Daniel Dunderfelt <dunderfeltdaniel@gmail.com>",
+  "version": "0.0.0",
+  "description": "The wordsw of the crowd.",
+  "contributors": [
+    {
+      "name": "Daniel Dunderfelt",
+      "email": "daniel.dunderfelt@mirumagency.com"
+    }
+  ],
   "license": "MIT",
   "main": "./bin/server.js",
   "scripts": {
@@ -46,6 +51,7 @@
     "babel-core": "^5.8.33",
     "babel-plugin-typecheck": "^2.0.0",
     "babel-runtime": "^5.8.29",
+    "classnames": "^2.2.0",
     "color": "^0.10.1",
     "compression": "^1.6.0",
     "decorate-this": "^0.5.0",
@@ -55,8 +61,13 @@
     "http-proxy": "^1.12.0",
     "isomorphic-fetch": "^2.2.0",
     "lodash": "^3.10.1",
+    "lru-memoize": "^1.0.0",
+    "mobservable": "^1.0.1",
+    "mobservable-react": "^2.0.0",
+    "object-assign": "^4.0.1",
     "piping": "^0.3.0",
     "pretty-error": "^1.2.0",
+    "query-string": "^3.0.0",
     "radium": "^0.14.3",
     "react": "^0.14.1",
     "react-dom": "^0.14.1",
@@ -89,6 +100,7 @@
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "json-loader": "^0.5.3",
+    "node-libs-browser": "^0.5.3",
     "node-sass": "^3.4.1",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",

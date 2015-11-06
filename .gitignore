@@ -1,2 +1,5 @@
-static/dist
 webpack-stats.json
+static/dist
+.idea
+node_modules
+npm-debug.log

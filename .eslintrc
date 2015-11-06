@@ -12,7 +12,7 @@
     "react"
   ],
   "ecmaFeatures": {
-    "jsx": true
+  	"jsx": true
   },
   // To give you an idea how to override rule options:
   "rules": {

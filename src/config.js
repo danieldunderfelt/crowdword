@@ -3,14 +3,14 @@ module.exports = {
 		isProduction: false,
 		port: process.env.PORT,
 		app: {
-			name: 'Universal React Development'
+			name: 'Onemetric development'
 		}
 	},
 	production: {
 		isProduction: true,
 		port: process.env.PORT,
 		app: {
-			name: 'Universal React Production'
+			name: 'Onemetric production'
 		}
 	}
 }[process.env.NODE_ENV || 'development'];
