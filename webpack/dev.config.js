@@ -11,31 +11,39 @@ var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools'));
 
 var babelrc = fs.readFileSync('./.babelrc');
-var babelLoaderQuery = {};
+var babelrcObject = {};
 
 try {
-	babelLoaderQuery = JSON.parse(babelrc);
+  babelrcObject = JSON.parse(babelrc);
 } catch (err) {
-	console.error('==>     ERROR: Error parsing your .babelrc.');
-	console.error(err);
+  console.error('==>     ERROR: Error parsing your .babelrc.');
+  console.error(err);
 }
 
+var babelrcObjectDevelopment = babelrcObject.env && babelrcObject.env.development || {};
+var babelLoaderQuery = Object.assign({}, babelrcObject, babelrcObjectDevelopment);
+delete babelLoaderQuery.env;
+
 babelLoaderQuery.plugins = babelLoaderQuery.plugins || [];
-babelLoaderQuery.plugins.push('react-transform');
+if (babelLoaderQuery.plugins.indexOf('react-transform') < 0) {
+  babelLoaderQuery.plugins.push('react-transform');
+}
+
 babelLoaderQuery.extra = babelLoaderQuery.extra || {};
-babelLoaderQuery.extra['react-transform'] = {
-	transforms: [{
-		transform: 'react-transform-hmr',
-		imports: ['react'],
-		locals: ['module']
-	}, {
-		transform: 'react-transform-catch-errors',
-		imports: ['react', 'redbox-react']
-	}]
-};
+if (!babelLoaderQuery.extra['react-transform']) {
+  babelLoaderQuery.extra['react-transform'] = {};
+}
+if (!babelLoaderQuery.extra['react-transform'].transforms) {
+  babelLoaderQuery.extra['react-transform'].transforms = [];
+}
+babelLoaderQuery.extra['react-transform'].transforms.push({
+  transform: 'react-transform-hmr',
+  imports: ['react'],
+  locals: ['module']
+});
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
   context: path.resolve(__dirname, '..'),
 	entry: {
 		'main': [

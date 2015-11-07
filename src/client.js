@@ -1,8 +1,8 @@
+import 'babel/polyfill'
 import 'isomorphic-fetch'
 import es6Promise from 'es6-promise'
 es6Promise.polyfill()
 
-import 'babel/polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import routes from './routes'

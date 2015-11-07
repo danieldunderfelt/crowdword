@@ -12,6 +12,7 @@ import http from 'http'
 import routes from './routes'
 import { match, RoutingContext } from 'react-router'
 import es6Promise from 'es6-promise'
+import api from './server/api'
 
 es6Promise.polyfill()
 
@@ -30,7 +31,6 @@ app.use((req, res) => {
 		// hot module replacement is enabled in the development env
 		webpackIsomorphicTools.refresh()
 	}
-
 
 	const history = createMemoryHistory()
 	const location = history.createLocation(req.path, req.query)

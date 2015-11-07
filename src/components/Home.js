@@ -1,4 +1,5 @@
 import React from 'react'
+import StoryBoard from './views/StoryBoard'
 
 class Home extends React.Component {
 
@@ -7,6 +8,7 @@ class Home extends React.Component {
         return (
             <div>
                 Home
+                <StoryBoard />
             </div>
         )
     }
